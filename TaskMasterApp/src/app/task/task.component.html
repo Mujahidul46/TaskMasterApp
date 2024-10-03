@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="split right">
+    <h2 class="text-center mb-4">Create a Task</h2>
+    <form (ngSubmit)="onSubmit()" class="task-form">
+      <div class="form-group">
+        <label for="TaskTitle">Title*:</label>
+        <input type="text" class="form-control" id="TaskTitle" placeholder="Enter Title"
+               [(ngModel)]="task.title" name="TaskTitle" required>
+
+        <label for="TaskNotes">Notes:</label>
+        <textarea class="form-control" id="TaskNotes" placeholder="Enter Notes"
+                  [(ngModel)]="task.description" name="TaskNotes"></textarea>
+
+        <label for="TaskDueDate">Due Date:</label>
+        <input type="date" class="form-control" id="TaskDueDate"
+               [(ngModel)]="task.dueDate" name="TaskDueDate">
+
+        <label for="TaskPriority">Priority:</label>
+        <select class="form-control" id="TaskPriority"
+                [(ngModel)]="task.priority" name="TaskPriority">
+          <option value="" selected>Select Priority (default: Medium)</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+      </div>
+
+      <button class="btn btn-success btn-block mt-3" type="submit">Create Task</button>
+
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        Error: {{ errorMessage }}
+      </div>
+
+      <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+      </div>
+
+    </form>
+  </div>
+  <app-task-details></app-task-details>
+</div>

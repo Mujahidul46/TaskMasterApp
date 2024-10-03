@@ -1,0 +1,245 @@
+.split {
+  height: 100%;
+  width: 60%;
+  position: fixed;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.right {
+  right: 0;
+  background-color: rgb(250, 205, 205);
+}
+
+.left {
+  left: 0;
+  background-color: #ccadad;
+}
+
+.task-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.centered-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.to-do {
+  margin-top: 20px;
+}
+
+.todo-list-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.view-toggle {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 15px;
+}
+
+.view-toggle:hover {
+  background-color: #45a049;
+}
+
+.empty-todo-content {
+  text-align: center;
+  color: #777;
+  margin-top: 20px;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+  position: relative; /* For relative positioning */
+}
+
+.task-item:hover {
+  background-color: #e0e0e0;
+}
+
+.task-checkbox {
+  width: 24px;
+  height: 24px;
+  accent-color: #4caf50;
+  cursor: pointer;
+  transform: scale(1.5);
+  margin-left: 10px; /* Space between checkbox and task info */
+}
+
+.btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute; /* Position it absolutely */
+  bottom: 10px; /* Space from the bottom */
+}
+
+.btn-edit {
+  background-color: #2196F3; /* Blue background */
+  color: white;
+  right: 80px; /* Adjust position for the edit button */
+}
+
+.btn-edit:hover {
+  background-color: #1976D2; /* Darker blue on hover */
+}
+
+.btn-danger {
+  background-color: #f44336; /* Red background */
+  color: white;
+  right: 10px; /* Space from the right */
+}
+
+.btn-danger:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+.task-info {
+  flex: 1;
+}
+
+.task-due,
+.task-priority {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Make sure the modal is on top */
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Slightly darker for better contrast */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1001; /* Ensure modal content is above overlay */
+  width: 400px; /* Adjust as necessary */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Stack the form elements */
+}
+
+label {
+  margin-bottom: 5px; /* Space between label and input */
+  font-weight: bold; /* Bold labels for emphasis */
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  padding: 10px;
+  margin-bottom: 15px; /* Space between inputs */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 14px; /* Font size for inputs */
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resizing only */
+  height: 80px; /* Fixed height for text area */
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="button"] {
+  background-color: #4caf50; /* Green for Save */
+  color: white;
+  margin-right: 10px; /* Space between buttons */
+}
+
+button[type="button"]:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+button[type="button"]:last-child {
+  background-color: #f44336; /* Red for Cancel */
+}
+
+button[type="button"]:last-child:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Hover effects for task items based on priority */
+.high-priority {
+  background-color: #ffcccc; /* Soft red for high priority */
+  color: #d32f2f; /* Darker text color for contrast */
+}
+
+.high-priority:hover {
+  background-color: #ffb3b3; /* Slightly darker soft red on hover */
+}
+
+.medium-priority {
+  background-color: #ffe0b2; /* Soft orange for medium priority */
+  color: #e65100; /* Darker text color for contrast */
+}
+
+.medium-priority:hover {
+  background-color: #fde182; /* Slightly darker soft orange on hover */
+}
+
+.low-priority {
+  background-color: #c8e6c9; /* Soft green for low priority */
+  color: #388e3c; /* Darker text color for contrast */
+}
+
+.low-priority:hover {
+  background-color: #b2e0b2; /* Slightly darker soft green on hover */
+}

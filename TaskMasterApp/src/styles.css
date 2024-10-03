@@ -1,0 +1,13 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+
+body {
+  display: flex;
+  margin: 0;
+  height: 100vh;
+
+}
+
+.navbar-right{
+  position: fixed;
+  right: 10px;
+}

@@ -1,0 +1,66 @@
+<div class="task-container split left">
+  <h2 class="centered-header">Your Tasks</h2>
+
+  <div class="to-do">
+    <div class="todo-list-container">
+      <div *ngIf="currentView === 'todos' && tasks.length === 0" class="empty-todo-content">
+        <h3 class="emptyTitle">You have no tasks.</h3>
+        <p>Great work!</p>
+      </div>
+
+      <ul *ngIf="currentView === 'todos' && tasks.length > 0" class="task-list">
+        <li *ngFor="let task of tasks"
+            [ngClass]="{
+              'high-priority': task.priority === 'high',
+              'medium-priority': task.priority === 'medium',
+              'low-priority': task.priority === 'low'
+            }"
+            class="task-item">
+          <div class="task-info">
+            <h4>{{ task.title }}</h4>
+            <p>{{ task.description }}</p>
+            <p class="task-due">Due: {{ task.dueDate | date }}</p>
+            <p class="task-remaining">{{ getRemainingTime(task.dueDate) }}</p>
+            <p class="task-priority">Priority: {{ task.priority }}</p>
+          </div>
+          <input
+            type="checkbox"
+            [checked]="task.isComplete"
+            (change)="markTaskComplete(task)"
+            class="task-checkbox"
+          >
+          <button class="btn btn-edit" (click)="editTask(task)">Edit</button>
+          <button class="btn btn-danger btn-delete" (click)="confirmDelete(task.id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal for editing task -->
+  <div class="modal" *ngIf="editingTask">
+    <div class="modal-overlay" (click)="closeModal()"></div>
+    <div class="modal-content">
+      <h2>Edit Task</h2>
+      <form>
+        <label for="title">Title:</label>
+        <input type="text" id="title" [(ngModel)]="editingTask.title" name="title" required />
+
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="editingTask.description" name="description"></textarea>
+
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" [(ngModel)]="editingTask.dueDate" name="dueDate" required />
+
+        <label for="priority">Priority:</label>
+        <select id="priority" [(ngModel)]="editingTask.priority" name="priority" required>
+          <option value="low" [selected]="editingTask.priority === 'low'">Low</option>
+          <option value="medium" [selected]="editingTask.priority === 'medium'">Medium</option>
+          <option value="high" [selected]="editingTask.priority === 'high'">High</option>
+        </select>
+
+        <button type="button" (click)="saveTask(editingTask)">Save</button>
+        <button type="button" (click)="closeModal()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
