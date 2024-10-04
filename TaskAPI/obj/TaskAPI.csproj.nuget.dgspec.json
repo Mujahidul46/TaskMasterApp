@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Student\\TaskMasterProject\\TaskAPI\\TaskAPI.csproj": {}
+    "C:\\Users\\Student\\TaskMasterApp\\TaskAPI\\TaskAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\TaskMasterProject\\TaskAPI\\TaskAPI.csproj": {
+    "C:\\Users\\Student\\TaskMasterApp\\TaskAPI\\TaskAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\TaskMasterProject\\TaskAPI\\TaskAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Student\\TaskMasterApp\\TaskAPI\\TaskAPI.csproj",
         "projectName": "TaskAPI",
-        "projectPath": "C:\\Users\\Student\\TaskMasterProject\\TaskAPI\\TaskAPI.csproj",
+        "projectPath": "C:\\Users\\Student\\TaskMasterApp\\TaskAPI\\TaskAPI.csproj",
         "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\TaskMasterProject\\TaskAPI\\obj\\",
+        "outputPath": "C:\\Users\\Student\\TaskMasterApp\\TaskAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../auth.service'; // Adjust path if needed
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule], // Include FormsModule here
+  imports: [FormsModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })

@@ -33,9 +33,8 @@ export class TaskService {
     body.append('isComplete', task.isComplete ? 'true' : 'false');
 
     return this.http.post(`${this.apiUrl}/create_task`, body).pipe(
-      // After creating the task, update the local task list
       tap(() => {
-        this.loadTasks(); // Reload tasks after creation
+        this.loadTasks();
       })
     );
   }
@@ -52,10 +51,8 @@ export class TaskService {
 
   // Update a task
   updateTask(task: Task): Observable<Task> {
-    // Create the body only with fields that are present in the task
     const body: any = { id: task.id };
 
-    // Only append fields that have values
     if (task.title) body.title = task.title;
     if (task.description !== undefined) body.description = task.description;
     if (task.dueDate) body.dueDate = task.dueDate;

@@ -12,16 +12,16 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./task-details.component.css'],
 })
 export class TaskDetailsComponent implements OnInit {
-  tasks: Task[] = []; // Array to hold the tasks
-  currentView: 'todos' = 'todos'; // Only keeping 'todos' view
-  editingTask: Task | null = null; // For editing a task
+  tasks: Task[] = [];
+  currentView: 'todos' = 'todos';
+  editingTask: Task | null = null;
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit() {
     this.taskService.tasks$.subscribe({
       next: (tasks) => {
-        console.log("Current tasks:", tasks); // Log current tasks
+        console.log("Current tasks:", tasks);
         this.tasks = tasks.sort((a, b) => a.id - b.id);
       },
       error: (error) => {
@@ -31,7 +31,7 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   setCurrentView(view: 'todos') {
-    this.currentView = view; // Set the current view (only 'todos' now)
+    this.currentView = view;
   }
 
   markTaskComplete(task: Task) {
@@ -49,7 +49,7 @@ export class TaskDetailsComponent implements OnInit {
   editTask(task: Task) {
     this.editingTask = {
       ...task,
-      dueDate: task.dueDate ? task.dueDate.split('T')[0] : ''
+      dueDate: task.dueDate ? task.dueDate.split('T')[0] : '' // removing time part from the due date
     };
     console.log('Editing Task:', this.editingTask);
   }
@@ -59,7 +59,7 @@ export class TaskDetailsComponent implements OnInit {
       next: () => {
         console.log('Task updated successfully');
         this.editingTask = null;
-        this.taskService.loadTasks(); // Reload tasks after saving
+        this.taskService.loadTasks();
       },
       error: (error) => {
         console.error('Error updating task:', error);
@@ -76,7 +76,7 @@ export class TaskDetailsComponent implements OnInit {
       this.taskService.deleteTask(taskId).subscribe({
         next: () => {
           console.log('Task deleted successfully');
-          this.taskService.loadTasks(); // Reload tasks after deletion
+          this.taskService.loadTasks();
         },
         error: (error) => {
           console.error('Error deleting task:', error);

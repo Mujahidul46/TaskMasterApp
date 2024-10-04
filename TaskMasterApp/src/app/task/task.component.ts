@@ -20,9 +20,7 @@ export class TaskComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit() {
-    // Optionally, you can subscribe to the tasks in the service
     this.taskService.tasks$.subscribe(tasks => {
-      // This will be triggered whenever the tasks are updated
       console.log('Updated tasks:', tasks);
     });
   }
@@ -43,7 +41,7 @@ export class TaskComponent implements OnInit {
     this.taskService.createTask(this.task).subscribe({
       next: response => {
         console.log('Task created:', response);
-        this.resetTask(); // Reset the task form after creation
+        this.resetTask();
         this.showSuccess('Task added successfully!');
       },
       error: error => {
@@ -67,7 +65,7 @@ export class TaskComponent implements OnInit {
     if (alertElement) {
       alertElement.classList.remove('fade-in');
       alertElement.classList.add('show');
-      void alertElement.offsetWidth; // Trigger reflow
+      void alertElement.offsetWidth;
       alertElement.classList.add('fade-in');
     }
   }

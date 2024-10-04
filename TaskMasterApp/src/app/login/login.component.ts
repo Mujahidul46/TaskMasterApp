@@ -22,7 +22,7 @@ export class LoginComponent {
       return;
     }
 
-    // Debugging: Log the values before sending them
+    // Logging the values before sending them
     console.log('Logging in with:', { username: this.username, password: this.password });
 
     // Send login credentials to backend
@@ -32,10 +32,10 @@ export class LoginComponent {
         this.router.navigate(['/tasks']); // Redirect after successful login
       },
       error: (error) => {
-        // Handle error (e.g., show a message to the user)
+        // Handle error
         console.error('Login failed', error);
-        const errorMessage = error.error.Errors ? error.error.Errors.join(', ') : 'An error occurred'; // Show specific errors
-        alert('Login failed: ' + errorMessage); // Optional: show error message
+        const errorMessage = error.error.Errors ? error.error.Errors.join(', ') : 'An error occurred';
+        alert('Login failed: ' + errorMessage);
       }
     });
   }

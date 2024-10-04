@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RGeOkNKDUYg=",
+  "dgSpecHash": "phUqvtIMrJ8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Student\\TaskMasterProject\\TaskAPI\\TaskAPI.csproj",
+  "projectFilePath": "C:\\Users\\Student\\TaskMasterApp\\TaskAPI\\TaskAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Student\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.8\\microsoft.entityframeworkcore.8.0.8.nupkg.sha512",
